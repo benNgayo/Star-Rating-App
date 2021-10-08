@@ -8,10 +8,10 @@ const Star = ({ selected = false, onSelect = (f) => f }) => (
 
 const createArray = (length) => [...Array(length)];
 
-export default function App({ totalStars = 5 }) {
+export default function App({ totalStars = 5, style = {} }) {
   const [selectedStars, setSelectedStars] = useState(3);
   return (
-    <div className="App">
+    <div className="App" style={{ padding: "5px", ...style }}>
       {createArray(totalStars).map((n, i) => (
         <Star
           key={i}
@@ -20,7 +20,7 @@ export default function App({ totalStars = 5 }) {
         />
       ))}
 
-      <p>
+      <p style={{ alignSelf: "center" }}>
         {selectedStars} of {totalStars}
       </p>
     </div>
